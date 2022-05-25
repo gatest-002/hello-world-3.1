@@ -37,6 +37,8 @@ jobs:
         run: |
           dotnet build --configuration Release
           dotnet publish -c Release -o myapp 
+          - name: In case of failure
+            if: ${{ failure() }}
           
       # Deploy to Azure Web apps
       - name: 'Run Azure webapp deploy action using publish profile credentials'
