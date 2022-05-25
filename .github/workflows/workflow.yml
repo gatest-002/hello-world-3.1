@@ -36,9 +36,10 @@ jobs:
       - name: dotnet build and publish
         run: |
           dotnet build --configuration Release
-          - name: In case of failure
-            if: ${{ failure() }}
           dotnet publish -c Release -o myapp 
+      - name: In case of failure
+           if: ${{ failure() }}
+         
           
           
       # Deploy to Azure Web apps
